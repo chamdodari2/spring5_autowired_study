@@ -25,16 +25,17 @@ public class AppCtx {
 	
 	
 	@Bean
+	@Qualifier("printer") 
 	public MemberPrinter memberPrinter() {  //dㅒ랑 멤버리스트프린터도 입력
 		return new MemberPrinter();
 	}
 	@Bean
-	@Qualifier("printer1")
+	@Qualifier("printer1")   //("printer1") 또는 2 해보기
 	public MemberPrinter memberPrinter1() {  //dㅒ랑 멤버리스트프린터도 입력
 		return new MemberPrn1();
 	}
 	@Bean
-	@Qualifier("printer2")
+	@Qualifier("printer2") 
 	public MemberPrinter memberPrinter2() {  //dㅒ랑 멤버리스트프린터도 입력
 		return new  MemberPrn2();
 	}

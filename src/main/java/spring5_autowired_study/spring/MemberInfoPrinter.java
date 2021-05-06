@@ -23,7 +23,7 @@ public class MemberInfoPrinter {
 		this.memberDao = memberDao;
 	}
 	@Autowired  //이렇게 메서드에 붙여도 된다
-	@Qualifier("printer1")
+	@Qualifier("printer")   // 1 또는 2 하기
 	public void setPrinter(MemberPrinter printer) {
 		this.printer = printer;
 	}

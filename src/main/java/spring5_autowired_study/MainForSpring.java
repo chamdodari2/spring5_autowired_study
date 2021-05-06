@@ -31,6 +31,7 @@ public class MainForSpring {
 				System.out.println("명령어를 입력하세요:");
 				String command = reader.readLine();
 
+				
 				if (command.equalsIgnoreCase("exit")) {
 					System.out.println("종료합니다.");
 					break;

@@ -18,7 +18,7 @@ public class MemberListPrinter {
 	}
 	
 	@Autowired
-	@Qualifier("printer2")
+	@Qualifier("printer")  //1 또는2 하기
 	public void setPrinter(MemberPrinter printer) {
 		this.printer = printer;
 	}
