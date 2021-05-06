@@ -15,6 +15,7 @@ import spring5_autowired_study.spring.MemberListPrinter;
 import spring5_autowired_study.spring.MemberNotFoundException;
 import spring5_autowired_study.spring.MemberRegisterService;
 import spring5_autowired_study.spring.RegisterRequest;
+import spring5_autowired_study.spring.VersionPrinter;
 import spring5_autowired_study.spring.WrongIdPasswordException;
 public class MainForSpring {
 
@@ -34,7 +35,7 @@ public class MainForSpring {
 				System.out.println("종료합니다.");
 				break;
 			}
-			if (command.startsWith("new")) {
+			if (command.startsWith("new ")) {
 				processNewCommand(command.split(" "));
 				continue;
 			} else if (command.equals("list")) {
@@ -44,8 +45,11 @@ public class MainForSpring {
 			}else if (command.startsWith("change")) {
 				processChangeCommand(command.split(" "));
 				continue;
-			}else if(command.startsWith("info")) {
+			}else if(command.startsWith("info ")) {
 				processInfoCommand(command.split(" "));
+				continue;
+			}if (command.equalsIgnoreCase("version")) {
+				processVersionCommand();
 				continue;
 			}
 			printHelp();
@@ -53,6 +57,13 @@ public class MainForSpring {
 	}
 
 	
+
+	private static void processVersionCommand() {
+		VersionPrinter versionPrinter = ctx.getBean("versionPrinter", VersionPrinter.class);
+		versionPrinter.print();
+	}
+
+
 
 	private static void processListCommand() {
 		MemberListPrinter listPrinter=ctx.getBean("listPrinter",MemberListPrinter.class);
