@@ -1,6 +1,6 @@
 package spring5_autowired_study.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,6 +9,8 @@ import spring5_autowired_study.spring.MemberDao;
 import spring5_autowired_study.spring.MemberInfoPrinter;
 import spring5_autowired_study.spring.MemberListPrinter;
 import spring5_autowired_study.spring.MemberPrinter;
+import spring5_autowired_study.spring.MemberPrn1;
+import spring5_autowired_study.spring.MemberPrn2;
 import spring5_autowired_study.spring.MemberRegisterService;
 import spring5_autowired_study.spring.VersionPrinter;
 
@@ -25,6 +27,16 @@ public class AppCtx {
 	@Bean
 	public MemberPrinter memberPrinter() {  //dㅒ랑 멤버리스트프린터도 입력
 		return new MemberPrinter();
+	}
+	@Bean
+	@Qualifier("printer1")
+	public MemberPrinter memberPrinter1() {  //dㅒ랑 멤버리스트프린터도 입력
+		return new MemberPrn1();
+	}
+	@Bean
+	@Qualifier("printer2")
+	public MemberPrinter memberPrinter2() {  //dㅒ랑 멤버리스트프린터도 입력
+		return new  MemberPrn2();
 	}
 
 	@Bean
