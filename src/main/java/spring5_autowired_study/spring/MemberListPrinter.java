@@ -6,12 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class MemberListPrinter {
 	
-	@Autowired
+	
 	private MemberDao memberDao;
-	@Autowired
+
 	private MemberPrinter printer;
 
-	
+	@Autowired
+	public void setMemberDao(MemberDao memberDao) {
+		this.memberDao = memberDao;
+	}
+	@Autowired
+	public void setPrinter(MemberPrinter printer) {
+		this.printer = printer;
+	}
 	public MemberListPrinter() {
 		// TODO Auto-generated constructor stub
 	}

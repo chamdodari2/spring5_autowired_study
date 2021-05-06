@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class ChangePasswordService {
 	
-	
+	@Autowired  //이렇게 해주면 자동주입 AppCtx.java에 있는거 참
 	private MemberDao memberDao;  //여기 필드에있으면 계속 dao 가리키고있어서 연관관계!! 실선
 								  // 연관관계도 세분화하면 두개로 나뉘어진다. 채워진 마름모에 화살표있는거랑, 빈마름모에 화살표있는거
 		//원래는 서비스도 인터페이스 따로 만들어야하는디

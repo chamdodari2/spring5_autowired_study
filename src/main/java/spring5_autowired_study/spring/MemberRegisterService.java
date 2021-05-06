@@ -8,6 +8,14 @@ public class MemberRegisterService {
 	@Autowired
 	private MemberDao memberDao;
 
+	
+	
+	
+	public MemberRegisterService() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
 	}

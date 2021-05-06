@@ -16,13 +16,13 @@ import spring5_autowired_study.spring.VersionPrinter;
 public class AppCtx {
 
 	
-	@Autowired
+	@Bean		//여기 bean 안되어있으면 에러뜨게된다!!
 	public MemberDao memberDao() {
 		return new MemberDao();
 	}
 	
 	
-	@Autowired
+	@Bean
 	public MemberPrinter memberPrinter() {  //dㅒ랑 멤버리스트프린터도 입력
 		return new MemberPrinter();
 	}
@@ -34,7 +34,7 @@ public class AppCtx {
 	@Bean
 	public MemberInfoPrinter infoPrinter() {
 		MemberInfoPrinter infoPrinter=new MemberInfoPrinter();
-	//	infoPrinter.setMemberDao(memberDao());
+	//	infoPrinter.setMemberDao(memberDao());   MemberInfoPrinter()에서 @Autowired 해줘서 주석해도다.  
 	//	infoPrinter.setPrinter(memberPrinter());
 		return infoPrinter;
 	}
@@ -49,12 +49,13 @@ public class AppCtx {
 	
 	@Bean
 	public MemberRegisterService memberRegSvc() {
-		return new MemberRegisterService(memberDao());
+	//	return new MemberRegisterService(memberDao());
+		return new MemberRegisterService();
 	}
 	@Bean
 	public ChangePasswordService changePwdSvc() {
 		ChangePasswordService pwdSvc = new ChangePasswordService();
-		pwdSvc.setMemberDao(memberDao());
+//		pwdSvc.setMemberDao(memberDao());     ChangePasswordService()에서 @Autowired 해줘서 주석해도된다.  
 		return pwdSvc;
 	}
 }
